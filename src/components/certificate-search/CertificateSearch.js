@@ -6,8 +6,16 @@ function CertificateSearch({ onSearch }) {
     const [searchInput, setSearchInput] = useState("");
 
     useEffect( () => {
-        if(searchInput) {
-            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates/${searchInput}`).then(response => {
+
+        let isnum = /^\d+$/.test(searchInput);
+        if (isnum) {
+            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates?nationalIdentityNumber=${searchInput}`).then(response => {
+                if (response.status === 200) onSearch(response.data);
+                else onSearch(null);
+            }).catch(() => onSearch(null))
+        }
+        else if (typeof searchInput === 'string'){
+            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates?name=${searchInput}`).then(response => {
                 if (response.status === 200) onSearch(response.data);
                 else onSearch(null);
             }).catch(() => onSearch(null))
@@ -21,8 +29,8 @@ function CertificateSearch({ onSearch }) {
     return (
       <>
           <label>
-              Søk sertifikat id:
-              <input type="number" value={searchInput} onChange={handleChange}/>
+              Søk:
+              <input type="string" value={searchInput} onChange={handleChange}/>
           </label>
       </>
     );
