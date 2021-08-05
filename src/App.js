@@ -2,6 +2,7 @@ import React from "react"
 import './App.css';
 import Header from "./components/header/Header";
 import Search from "./pages/search"
+import Register from "./pages/register"
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/vaccine-registration">
-              <div>Hi</div>
+              <Register />
             </Route>
             <Route path="/">
               <Search />
