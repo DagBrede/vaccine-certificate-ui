@@ -6,7 +6,7 @@ import Search from "./pages/search"
 
 function App() {
   return (
-    <div className="App">
+    <div class="App">
         <Header />
         <Search />
     </div>
