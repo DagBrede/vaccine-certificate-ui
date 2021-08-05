@@ -7,7 +7,7 @@ import { LanguageContext } from "./context"
 function App() {
   const [language, setLanugage] = useState("no")
 
-  function changeLanguage(newLanguage) {
+  const changeLanguage = (newLanguage) => {
     setLanugage(newLanguage);
   }
 

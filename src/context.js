@@ -1,6 +1,6 @@
 import { createContext} from "react";
 
 
-const LanguageContext = createContext('no');
+const LanguageContext = createContext(null);
 
 export { LanguageContext }

@@ -10,16 +10,18 @@ function Header() {
 
   useEffect(() => {
     translateText("Hei velkommen til siden", "no", language).then(translatedText => {
-      console.log(translatedText)
       setWelcomText(translatedText)
     })
-  }, [])
+  }, [language])
 
 
     return (
       <header>
           <h1>Norges vaksinetjeneste</h1>
           <div>{welcomeText}</div>
+          <button onClick={() => changeLanguage("no")}>Norsk</button>
+          <button onClick={() => changeLanguage("en")}>English</button>
+          <button onClick={() => changeLanguage("pl")}>Polskie</button>
       </header>
     );
 }
