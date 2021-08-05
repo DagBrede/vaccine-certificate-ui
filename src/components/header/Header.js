@@ -19,8 +19,6 @@ function Header() {
             <Link className="button" to="/vaccine-registration">Register vaccine</Link>
           </div>
         </div>
-
-          
       </header>
     );
 }
