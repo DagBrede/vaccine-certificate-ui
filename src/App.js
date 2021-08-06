@@ -1,14 +1,30 @@
 import React from "react"
 import './App.css';
-import CertificateContainer from "./components/certificate-search/CertificateContainer";
 import Header from "./components/header/Header";
+import Search from "./pages/search"
+import Register from "./pages/register"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-        <Header />
-        <CertificateContainer />
-    </div>
+    <Router>
+      <div className="App">
+          <Header />
+          <Switch>
+            <Route path="/vaccine-registration">
+              <Register />
+            </Route>
+            <Route path="/">
+              <Search />
+            </Route>
+          </Switch>
+      </div>
+    </Router>
   );
 }
 

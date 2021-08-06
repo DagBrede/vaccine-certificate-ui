@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import "./CertificateSearch.css"
+import { BsSearch } from 'react-icons/bs';
 
 function CertificateSearch({ onSearch }) {
 
     const [searchInput, setSearchInput] = useState("");
 
     useEffect( () => {
+        if(searchInput) {
 
         let isnum = /^\d+$/.test(searchInput);
         if (isnum) {
@@ -26,12 +29,13 @@ function CertificateSearch({ onSearch }) {
         setSearchInput(event.target.value);
     }
 
+
     return (
       <>
-          <label>
-              Søk:
-              <input type="string" value={searchInput} onChange={handleChange}/>
-          </label>
+      <div class="Search-bar-container">
+              <input class="Search-bar" type="text" value={searchInput} placeholder={"Søk etter vaksinasjoner (fødselsnummer)"} onChange={handleChange} />
+              <button onClick={handleOnClick} class="Search-button"><BsSearch/> </button>
+          </div>
       </>
     );
 
