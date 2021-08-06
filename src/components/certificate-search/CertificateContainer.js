@@ -7,7 +7,7 @@ import { translateText } from "../../services/services";
 function CertificateContainer() {
     const {language, changeLanguage} = useContext(LanguageContext)
 
-    const [certificateSearchResult, setCertificateSearchResult] = useState({});
+    const [certificateSearchResult, setCertificateSearchResult] = useState();
     const [resultText, setResultText] = useState("");
 
     useEffect(() => {
