@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import CertificateSearch from "./CertificateSearch";
-import Certificate from "./Certificate";
+import CertificateTable from "./CertificateTable";
 
 function CertificateContainer() {
-    const [certificateSearchResult, setCertificateSearchResult] = useState({});
+    const [certificateSearchResult, setCertificateSearchResult] = useState([]);
 
     return (
         <div>
             <CertificateSearch onSearch={setCertificateSearchResult}/>
             {
                 certificateSearchResult && <div>
-                Resultat: <Certificate certificate={certificateSearchResult}/>
+                Resultat: <CertificateTable certificates={certificateSearchResult}/>
                 </div>
             }
         </div>
