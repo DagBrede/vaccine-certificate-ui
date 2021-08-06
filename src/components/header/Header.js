@@ -15,8 +15,8 @@ function Header() {
             </Link>
           </div>
           <div className="buttons-container">
-            <Link className="button" to="/">Search</Link>
-            <Link className="button" to="/vaccine-registration">Register vaccine</Link>
+            <Link className="button" to="/">Søk</Link>
+            <Link className="button" to="/vaccine-registration">Registrer vaksine</Link>
           </div>
         </div>
       </header>
