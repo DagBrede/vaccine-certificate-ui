@@ -24,6 +24,12 @@ function CertificateSearch({ onSearch }) {
             }).catch(() => onSearch(null))
             }
         }
+        else {
+            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates`).then(response => {
+                if (response.status === 200) onSearch(response.data);
+                else onSearch(null);
+            }).catch(() => onSearch(null))
+        }
     }, [onSearch, searchInput])
 
     const handleChange = (event) => {
