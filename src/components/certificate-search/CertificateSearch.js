@@ -19,18 +19,32 @@ function CertificateSearch({ onSearch }) {
       }, [language])
 
     useEffect( () => {
-    }, [onSearch, searchInput])
-
-    const handleChange = (event) => {
-        setSearchInput(event.target.value);
-    }
-    const handleOnClick = (event) =>{
         if(searchInput) {
-            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates/${searchInput}`).then(response => {
+
+        let isnum = /^\d+$/.test(searchInput);
+        if (isnum) {
+            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates?nationalIdentityNumber=${searchInput}`).then(response => {
                 if (response.status === 200) onSearch(response.data);
                 else onSearch(null);
             }).catch(() => onSearch(null))
         }
+        else if (typeof searchInput === 'string'){
+            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates?name=${searchInput}`).then(response => {
+                if (response.status === 200) onSearch(response.data);
+                else onSearch(null);
+            }).catch(() => onSearch(null))
+            }
+        }
+        else {
+            axios.get(`${process.env.REACT_APP_BASE_URL}/certificates`).then(response => {
+                if (response.status === 200) onSearch(response.data);
+                else onSearch(null);
+            }).catch(() => onSearch(null))
+        }
+    }, [onSearch, searchInput])
+
+    const handleChange = (event) => {
+        setSearchInput(event.target.value);
     }
 
 
@@ -38,7 +52,8 @@ function CertificateSearch({ onSearch }) {
       <>
       <div class="Search-bar-container">
               <input class="Search-bar" type="text" value={searchInput} placeholder={searchBarText} onChange={handleChange} />
-              <button onClick={handleOnClick} class="Search-button"><BsSearch/> </button>
+              {//<button onClick={handleOnClick} class="Search-button"><BsSearch/> </button>
+              }
           </div>
       </>
     );

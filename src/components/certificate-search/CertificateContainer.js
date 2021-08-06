@@ -1,13 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import CertificateSearch from "./CertificateSearch";
-import Certificate from "./Certificate";
 import { LanguageContext } from "../../context";
 import { translateText } from "../../services/services";
+import CertificateTable from "./CertificateTable";
 
 function CertificateContainer() {
+    const [certificateSearchResult, setCertificateSearchResult] = useState([]);
     const {language, changeLanguage} = useContext(LanguageContext)
-
-    const [certificateSearchResult, setCertificateSearchResult] = useState();
     const [resultText, setResultText] = useState("");
 
     useEffect(() => {
@@ -21,7 +20,7 @@ function CertificateContainer() {
             <CertificateSearch onSearch={setCertificateSearchResult}/>
             {
                 certificateSearchResult && <div>
-                {resultText}: <Certificate certificate={certificateSearchResult}/>
+                {resultText}: <CertificateTable certificates={certificateSearchResult}/>
                 </div>
             }
         </div>
