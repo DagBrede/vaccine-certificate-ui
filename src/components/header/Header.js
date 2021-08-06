@@ -12,6 +12,7 @@ function Header() {
 
   const [searchButtonText, setSearchButtonText] = useState("");
   const [registerButtonText, setRegisterButtonText] = useState("");
+  const [languageButtonText, setLanguageButtonText] = useState("");
 
   useEffect(() => {
     translateText("Søk", "no", language).then(translatedText => {
@@ -19,6 +20,9 @@ function Header() {
     })
     translateText("Registrer vaksine", "no", language).then(translatedText => {
       setRegisterButtonText(translatedText)
+    })
+    translateText("Språk", "no", language).then(translatedText => {
+      setLanguageButtonText(translatedText)
     })
   }, [language])
 
@@ -34,10 +38,13 @@ function Header() {
           <div className="buttons-container">
             <Link className="button" to="/">{searchButtonText}</Link>
             <Link className="button" to="/vaccine-registration">{registerButtonText}</Link>
-            <div className="translate-buttons-container">
-              <button onClick={() => changeLanguage("no")}>Norsk</button>
-              <button onClick={() => changeLanguage("en")}>English</button>
-              <button onClick={() => changeLanguage("pl")}>Polskie</button>
+            <div class="dropdown">
+              <button class="dropbtn">{languageButtonText}</button>
+              <div class="dropdown-content">
+                <button onClick={() => changeLanguage("no")}>Norsk</button>
+                <button onClick={() => changeLanguage("en")}>English</button>
+                <button onClick={() => changeLanguage("pl")}>Polskie</button>
+              </div>
             </div>
           </div>
         </div>
