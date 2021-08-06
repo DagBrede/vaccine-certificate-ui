@@ -2,9 +2,11 @@
     margin: auto;
     width: 50vw;
     padding-right: 25vw;
+    padding-top: 10vh;
 }
 .vaccination-form > div{
     text-align: right;
+    margin: 10px;
 }
 .vaccination-form > div > button{
     width: 50px;
