@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { LanguageContext } from "../../context"
 import { translateText } from "../../services/services"
 import header from "../../header.jpeg"
