@@ -3,6 +3,13 @@ import './App.css';
 import Header from "./components/header/Header";
 import Search from "./pages/search"
 import { LanguageContext } from "./context"
+import Register from "./pages/register"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   const [language, setLanugage] = useState("no")
@@ -12,12 +19,21 @@ function App() {
   }
 
   return (
-    <div class="App">
-      <LanguageContext.Provider value={{language, changeLanguage}}>
-        <Header />
-        <Search />
-      </LanguageContext.Provider>
-    </div>
+    <Router>
+      <div className="App">
+        <LanguageContext.Provider value={{language, changeLanguage}}>
+          <Header />
+          <Switch>
+            <Route path="/vaccine-registration">
+              <Register />
+            </Route>
+            <Route path="/">
+              <Search />
+            </Route>
+          </Switch>
+        </LanguageContext.Provider>
+      </div>
+    </Router>
   );
 }
 
