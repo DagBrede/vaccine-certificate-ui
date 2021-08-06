@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { LanguageContext } from "../../context"
 import { translateText } from "../../services/services"
-import React from "react";
 import header from "../../header.jpeg"
 import {
   Link
