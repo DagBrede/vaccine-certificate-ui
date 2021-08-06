@@ -1,5 +1,6 @@
 import React from "react";
 import header from "../../header.jpeg"
+import logo from "../../fhi-norsk-logo.webp"
 import {
   Link
 } from "react-router-dom";
@@ -12,6 +13,7 @@ function Header() {
           <div className="logo">
             <Link to="/">
               <img className="logo-image" src={header}></img>
+              <img className="fhi-logo" src={logo}></img>
             </Link>
           </div>
           <div className="buttons-container">
