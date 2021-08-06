@@ -22,6 +22,7 @@ function CertificateSearch({ onSearch }) {
                 if (response.status === 200) onSearch(response.data);
                 else onSearch(null);
             }).catch(() => onSearch(null))
+            }
         }
     }, [onSearch, searchInput])
 
@@ -34,7 +35,8 @@ function CertificateSearch({ onSearch }) {
       <>
       <div class="Search-bar-container">
               <input class="Search-bar" type="text" value={searchInput} placeholder={"Søk etter vaksinasjoner (fødselsnummer)"} onChange={handleChange} />
-              <button onClick={handleOnClick} class="Search-button"><BsSearch/> </button>
+              {//<button onClick={handleOnClick} class="Search-button"><BsSearch/> </button>
+              }
           </div>
       </>
     );
