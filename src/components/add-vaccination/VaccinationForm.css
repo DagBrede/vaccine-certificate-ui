@@ -1,0 +1,29 @@
+.vaccination-form{
+    margin: auto;
+    width: 50vw;
+    padding-right: 25vw;
+}
+.vaccination-form > div{
+    text-align: right;
+}
+.vaccination-form > div > button{
+    width: 50px;
+    margin-left: -50px;
+}
+
+.radio{
+    width: 19.5vw;
+    display: inline-block;
+}
+
+.dropdown{
+    width:19.3vw;
+}
+
+.add{
+    text-align: center;
+}
+
+.text-input{
+    width: 18.5vw;
+}

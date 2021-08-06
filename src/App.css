@@ -1,3 +1,10 @@
+:root{
+  --fhi-color1: #393c61;
+  --fhi-color2: #676a85;
+  --fhi-color3: #377d95;
+  --fhi-color4: #d5e6ec;
+}
+
 .App {
   text-align: center;
 }
