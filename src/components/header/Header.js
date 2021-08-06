@@ -11,22 +11,21 @@ import './Header.css'
 function Header() {
   const {language, changeLanguage} = useContext(LanguageContext)
 
-  const [welcomeText, setWelcomText] = useState("");
+  const [searchButtonText, setSearchButtonText] = useState("");
+  const [registerButtonText, setRegisterButtonText] = useState("");
 
   useEffect(() => {
-    translateText("Hei velkommen til siden", "no", language).then(translatedText => {
-      setWelcomText(translatedText)
+    translateText("Søk", "no", language).then(translatedText => {
+      setSearchButtonText(translatedText)
+    })
+    translateText("Registrer vaksine", "no", language).then(translatedText => {
+      setRegisterButtonText(translatedText)
     })
   }, [language])
 
 
     return (
       <header>
-          <h1>Norges vaksinetjeneste</h1>
-          <div>{welcomeText}</div>
-          <button onClick={() => changeLanguage("no")}>Norsk</button>
-          <button onClick={() => changeLanguage("en")}>English</button>
-          <button onClick={() => changeLanguage("pl")}>Polskie</button>
         <div className="navbar">
           <div className="logo">
             <Link to="/">
@@ -34,8 +33,13 @@ function Header() {
             </Link>
           </div>
           <div className="buttons-container">
-            <Link className="button" to="/">Søk</Link>
-            <Link className="button" to="/vaccine-registration">Registrer vaksine</Link>
+            <Link className="button" to="/">{searchButtonText}</Link>
+            <Link className="button" to="/vaccine-registration">{registerButtonText}</Link>
+            <div className="translate-buttons-container">
+              <button onClick={() => changeLanguage("no")}>Norsk</button>
+              <button onClick={() => changeLanguage("en")}>English</button>
+              <button onClick={() => changeLanguage("pl")}>Polskie</button>
+            </div>
           </div>
         </div>
       </header>
